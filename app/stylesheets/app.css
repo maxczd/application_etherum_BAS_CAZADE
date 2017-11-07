@@ -1,52 +1,146 @@
 body {
-  margin-left: 25%;
-  margin-right: 25%;
-  margin-top: 10%;
-  font-family: "Open Sans", sans-serif;
+    background: linear-gradient(to bottom, #efefef, white) no-repeat;
+    font-size:10px;
+    width:100%;
+    font-family: 'Lato', sans-serif;
+    font-weight:300;
+    color:#777;
+}
+ul{
+  padding:0px;
+}
+li{
+  height:40px;
+  padding-left:20px;
+  line-height:40px;
+  list-style: none;
+  font-family: 'Lato', sans-serif;
+  font-size:16px;
+}
+a{
+  color:#787878;
+  text-decoration:none;
+}
+p{
+  font-size:14px;
+  text-align:center;
+}
+h2{
+  font-weight:300;
+}
+button{
+  color:#fff;
+}
+/*-------------------*/
+/*      HEADER       */
+/*-------------------*/
+body > header {
+    background: white;
+    box-shadow: 1px 0px 8px rgb(200, 200, 200);
+    height: 80px;
 }
 
-label {
-  display: inline-block;
-  width: 100px;
+header .logo-search form  {
+    width: 50%;
 }
 
-input {
-  width: 500px;
-  padding: 5px;
-  font-size: 16px;
+header .user {
+    float: right;
+}
+.position-element-search{
+  margin-top:20px;
+}
+.position-element-icon{
+  margin-top:30px;
+}
+.stylish-input-group{
+  width:50%;
+}
+.stylish-input-group .input-group-addon{
+    background: white !important;
+}
+.stylish-input-group .form-control{
+	border-right:0;
+	box-shadow:0 0 0;
+	border-color:#ccc;
+}
+.stylish-input-group button{
+    border:0;
+    background:transparent;
+}
+/*-------------------*/
+/*    END HEADER     */
+/*-------------------*/
+
+.margin-nav{
+  padding-right:0px!important;
+  padding-left:0px!important;
+  background: white;
+  max-width:300px;
+  box-shadow: 0px 8px 5px 0px rgb(200, 200, 200);
+}
+.container-fluid{
+  padding-right:0px!important;
+  padding-left:0px!important;
+}
+.row{
+  margin-right:0px!important;
+  margin-left:0px!important;
+}
+.position-album{
+  margin-top:30px;
+  margin-left:auto;
+  margin-right:auto;
+}
+.btn-adopt{
+  width:100%;
+}
+.btn-nav{
+  width:80%;
+}
+.btn-cat{
+  background-color: #777777;
+}
+.btn-download{
+  background-color: #fefefe;
+  color: #0089f5;
+  border:1px solid #aaa;
+  border-radius:5px;
+}
+.btn-download:hover{
+  opacity:0.6;
+  background-color: #eeeff1;
+}
+.active{
+  background-color:#eaeaea;
+}
+li:hover{
+  opacity:0.5;
+}
+.vertical-align{
+  height:40px;
+  line-height:40px;
 }
 
-button {
-  font-size: 16px;
-  padding: 5px;
+.music-title{
+  font-size:14px;
+  font-weight:400;
+}
+.music-artist{
+  font-size:12px;
+  font-weight:400;
+}
+.music-date{
+  font-size:12px;
+  font-weight:300;
 }
 
-h1, h2 {
-  display: inline-block;
-  vertical-align: middle;
-  margin-top: 0px;
-  margin-bottom: 10px;
+.delete-padding{
+  padding-left:0px!important;
 }
 
-h2 {
-  color: #AAA;
-  font-size: 32px;
-}
-
-h3 {
-  font-weight: normal;
-  color: #AAA;
-  font-size: 24px;
-}
-
-.black {
-  color: black;
-}
-
-#balance {
-  color: black;
-}
-
-.hint {
-  color: #666;
+@media screen and (max-width: 768px) {
+  .margin-nav{
+    max-width:100%;
+  }
 }

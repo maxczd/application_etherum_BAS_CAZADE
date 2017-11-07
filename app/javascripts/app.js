@@ -22,6 +22,27 @@ var accounts;
 var account;
 
 window.App = {
+  init: function() {
+      // Load music.
+      $.getJSON('../music.json', function(data) {
+        var musicRow = $('#musicRow');
+        var musicTemplate = $('#musicTemplate');
+
+        for (i = 0; i < data.length; i ++) {
+          musicTemplate.find('img').attr('src', data[i].picture);
+          musicTemplate.find('.music-title').text(data[i].title);
+          musicTemplate.find('.music-artist').text(data[i].artist);
+          musicTemplate.find('.music-date').text(data[i].date);
+          musicTemplate.find('.music-download').text(data[i].dowlnoad);
+          musicTemplate.find('.music-etherum').text(data[i].etherum);
+          musicTemplate.find('.btn-adopt').attr('data-id', data[i].id);
+
+          musicRow.append(musicTemplate.html());
+        }
+      });
+
+      return App.initWeb3();
+    },
   start: function() {
     var self = this;
 

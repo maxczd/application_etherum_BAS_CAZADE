@@ -1,23 +1,176 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>MetaCoin - Truffle Webpack Demo w/ Frontend</title>
-  <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
-  <script src="./app.js"></script>
-</head>
-<body>
-  <h1>MetaCoin</h1>
-  <h2>Example Truffle Dapp</h2>
-  <h3>You have <span class="black"><span id="balance"></span> META</span></h3>
+  <head>
+    <title>SoundChain</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <br>
-  <h1>Send MetaCoin</h1>
-  <br><label for="amount">Amount:</label><input type="text" id="amount" placeholder="e.g., 95"></input>
-  <br><label for="receiver">To Address:</label><input type="text" id="receiver" placeholder="e.g., 0x93e66d9baea28c17d9fc393b53e3fbdd76899dae"></input>
-  <br><br><button id="send" onclick="App.sendCoin()">Send MetaCoin</button>
-  <br><br>
-  <span id="status"></span>
-  <br>
-  <span class="hint"><strong>Hint:</strong> open the browser developer console to view any errors and warnings.</span>
-</body>
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+    <!-- Font Lato-->
+    <link href='https://fonts.googleapis.com/css?family=Lato:300,400,700' rel='stylesheet' type='text/css'>
+    <!-- Font Awesome-->
+  	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+  </head>
+  <body>
+    <header>
+			<div class="row">
+				<div class="logo-search col-xs-12 col-sm-12 col-md-4 col-lg-4">
+					<img src="test"/>
+				</div>
+        <div class="d-none d-md-block col-md-6 col-lg-6 position-element-search">
+          <div class="float-right input-group stylish-input-group">
+              <input type="text" class="form-control"  placeholder="Search" >
+              <span class="input-group-addon">
+                  <button type="submit">
+                      <span class="fa fa-search" style="color:#777"></span>
+                  </button>
+              </span>
+          </div>
+        </div>
+				<div class="d-none d-md-block col-md-2 col-lg-2 position-element-icon">
+          <span class="float-right fa fa-sign-out fa-2x" style="color:#0089f5"></span>
+				</div>
+			</div>
+		</header>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3 margin-nav">
+          <div class="row" style="margin-top:20px;margin-bottom:20px;">
+            <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 vertical-align">
+              <img class="float-right img-rounded img-center" style="width: 30px;" src="images/eric.png">
+            </div>
+            <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 vertical-align">
+              <p>Eric Prydz</p>
+            </div>
+            <div class="d-none d-md-block col-md-3 col-lg-3 vertical-align">
+              <a href="#"><i class="fa fa-cog fa-2x"></i></a>
+            </div>
+          </div>
+          <p>
+            <button class="btn btn-primary btn-nav" type="button" data-toggle="modal" data-target="#myModal"><i class="fa fa-plus"></i> Upload</button><br/><br/><br/><br/>
+            <button class="btn btn-cat btn-nav" type="button">Category</button><br/><br/>
+          </p>
+          <ul>
+            <li class="active"><a href="#"><i class="fa fa-music"></i> Music</a></li>
+            <li><a href="#"><i class="fa fa-video-camera"></i> Videos</a></li>
+            <li><a href="#"><i class="fa fa-camera"></i> Pictures</a></li>
+            <li><a href="#"><i class="fa fa-file-text"></i> Documents</a></li>
+            <li><a href="#"><i class="fa fa-plus"></i> Others</a></li>
+          </ul>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-9 col-lg-9 position-album">
+          <h2>Discover Music</h2>
+          <hr>
+          <div id="musicRow" class="row">
+            <!-- MetaCoin LOAD HERE -->
+            <h1>MetaCoin</h1>
+            <h2>Example Truffle Dapp</h2>
+            <h3>You have <span class="black"><span id="balance"></span> META</span></h3>
+            <br>
+            <h1>Send MetaCoin</h1>
+            <br><label for="amount">Amount:</label><input type="text" id="amount" placeholder="e.g., 95"></input>
+            <br><label for="receiver">To Address:</label><input type="text" id="receiver" placeholder="e.g., 0x93e66d9baea28c17d9fc393b53e3fbdd76899dae"></input>
+            <br><br><button id="send" onclick="App.sendCoin()">Send MetaCoin</button>
+            <br><br>
+            <span id="status"></span>
+            <br>
+            <span class="hint"><strong>Hint:</strong> open the browser developer console to view any errors and warnings.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="musicTemplate" style="display: none;">
+      <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+        <div class="panel panel-default panel-music">
+          <div class="panel-body">
+            <img alt="140x140" data-src="holder.js/140x140" class="img-rounded img-center" style="width: 100%;" src="https://animalso.com/wp-content/uploads/2017/01/Golden-Retriever_6.jpg" data-holder-rendered="true">
+            <br/><br/>
+            <div class="row">
+              <div class="delete-padding col-sm-10 col-md-10 col-lg-10">
+                <span class="music-title">Golden Retriever</span><br/>
+              </div>
+              <div class="col-sm-2 col-md-2 col-lg-2">
+                <span class="float-right" class="music-download">1.5K</span><br/>
+              </div>
+            </div>
+            <div class="row">
+              <div class="delete-padding col-sm-10 col-md-10 col-lg-10">
+                <span class="music-artist">3</span><br/>
+              </div>
+              <div class="col-sm-2 col-md-2 col-lg-2">
+                <span class="float-right" class="music-etherum">50.2eth</span><br/>
+              </div>
+            </div>
+            <span class="music-date">Warren, MI</span><br/><br/>
+            <button class="btn btn-download btn-adopt" type="button" data-id="0"><i class="fa fa-download" style="color:#0089f5"></i> Download</button><br/><br/>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Add a new file</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form>
+              <div class="input-group">
+               <span class="input-group-addon"><i class="fa fa-list-ol"></i></span>
+                <select class="form-control" id="sel1">
+                  <option>1</option>
+                  <option>2</option>
+                  <option>3</option>
+                  <option>4</option>
+                </select>
+              </div><br/><br/>
+              <div class="input-group">
+                <span class="input-group-addon"><i class="fa fa-address-card-o"></i></span>
+                <input type="text" class="form-control" name="address" placeholder="Address">
+              </div><br/><br/>
+              <div class="input-group">
+                <span class="input-group-addon"><i class="fa fa-percent"></i></span>
+                <input type="number" class="form-control" name="percentage" placeholder="Percentage">
+              </div><br/><br/>
+              <div class="form-group">
+                <div class="input-group">
+                  <span class="input-group-addon"><i class="fa fa-bullseye"></i></span>
+                  <select placeholder="Number of collaborators"  class="form-control" id="sel1">
+                    <option>Music</option>
+                    <option>Videos</option>
+                    <option>Pictures</option>
+                    <option>Documents</option>
+                    <option>Others</option>
+                  </select>
+                </div>
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary"><i class="fa fa-plus"></i> Upload</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="./app.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/web3.min.js"></script>
+    <script src="js/truffle-contract.js"></script>
+    <script src="js/app.js"></script>
+  </body>
 </html>
