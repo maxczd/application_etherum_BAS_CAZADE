@@ -1,7 +1,7 @@
 [
   {
     "id": 0,
-    "picture": "images/megan.jpg",
+    "picture": "https://github.com/maxczd/application_etherum_BAS_CAZADE/blob/master/app/images/megan.jpg",
     "artist": "par Megan",
     "title": "Alone",
     "date": "Sorti le 16-06-2017",
@@ -10,7 +10,7 @@
   },
   {
     "id": 1,
-    "picture": "images/kartell.jpg",
+    "picture": "https://github.com/maxczd/application_etherum_BAS_CAZADE/blob/master/app/images/kartell.jpg",
     "artist": "par Kartell",
     "title": "5 A.M.",
     "date": "Sorti le 04-11-2017",
@@ -19,7 +19,7 @@
   },
   {
     "id": 2,
-    "picture": "images/else.jpg",
+    "picture": "https://github.com/maxczd/application_etherum_BAS_CAZADE/blob/master/app/images/else.jpg",
     "artist": "par Else",
     "title": "Myrage",
     "date": "Sorti le 16-06-2017",
@@ -28,7 +28,7 @@
   },
   {
     "id": 3,
-    "picture": "images/darius.jpg",
+    "picture": "https://github.com/maxczd/application_etherum_BAS_CAZADE/blob/master/app/images/darius.jpg",
     "artist": "par Darius",
     "title": "Romance - EP",
     "date": "Sorti le 24-02-2014",
@@ -37,7 +37,7 @@
   },
   {
     "id": 4,
-    "picture": "images/fkj.jpg",
+    "picture": "https://github.com/maxczd/application_etherum_BAS_CAZADE/blob/master/app/images/fkj.jpg",
     "artist": "par FKJ",
     "title": "French Kiwi Juice",
     "date": "Sorti le 03-03-2017",
@@ -46,7 +46,7 @@
   },
   {
     "id": 5,
-    "picture": "images/masego.jpg",
+    "picture": "https://github.com/maxczd/application_etherum_BAS_CAZADE/blob/master/app/images/masego.jpg",
     "artist": "par Masego & FKJ",
     "title": "Tadow",
     "date": "Sorti le 06-10-2017",
@@ -55,7 +55,7 @@
   },
   {
     "id": 6,
-    "picture": "images/beauvois.jpg",
+    "picture": "https://github.com/maxczd/application_etherum_BAS_CAZADE/blob/master/app/images/beauvois.jpg?raw=true",
     "artist": "par Beauvois",
     "title": "Marks",
     "date": "Sorti le 02-12-2016",
@@ -64,7 +64,7 @@
   },
   {
     "id": 7,
-    "picture": "images/karud.jpg",
+    "picture": "https://github.com/maxczd/application_etherum_BAS_CAZADE/blob/master/app/images/karud.jpg",
     "artist": "par Andre & Karud",
     "title": "Almost Original",
     "date": "Sorti le 26-12-2016",
