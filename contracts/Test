@@ -1,0 +1,42 @@
+contract split{
+    mapping(address => uint) public beneficiaryBalance;
+    address[4] public beneficiaryList;
+    
+    event LogReceived(address sender, uint amount);
+    event LogWithdrawal(address beneficiary, uint amount);
+
+    function FourWaySplit(address addressA, address addressB, address addressC, address addressD) {
+        beneficiaryList[0]=addressA;
+        beneficiaryList[1]=addressB;
+        beneficiaryList[2]=addressC;
+        beneficiaryList[3]=addressD;
+      }
+      
+    function pay () returns(bool success){
+        //if(msg.value == 0) revert();
+        
+        uint forth = msg.value/4;
+        
+        beneficiaryBalance[beneficiaryList[0]] += forth;
+        beneficiaryBalance[beneficiaryList[1]] += forth;
+        beneficiaryBalance[beneficiaryList[2]] += forth;
+        beneficiaryBalance[beneficiaryList[3]] += forth;
+        LogReceived(msg.sender, msg.value);
+        return true;
+    }
+    
+    function withdraw (uint amount)  public returns(bool success) {
+        if(beneficiaryBalance[msg.sender] < amount) revert();
+        beneficiaryBalance[msg.sender] -= amount;
+        if(!msg.sender.send(amount)) revert();               
+        LogWithdrawal(msg.sender, amount);
+        return true;
+        
+    }
+  
+  
+}
+
+/*0xca35b7d915458ef540ade6068dfe2f44e8fa733c
+"0x14723a09acff6d2a60dcdf7aa4aff308fddc160c", "0x4b0897b0513fdc7c541b6d9d7e929c4e5364d2db", "0x583031d1113ad414f02576bd6afabfb302140225", "0xdd870fa1b7c4700f2bd7f44238821c26f7392148"
+*/
