@@ -62,7 +62,7 @@ window.App = {
       }
 
       accounts = accs;
-      account = accounts[0];
+      account = accounts[10];
 
       self.refreshBalance();
     });
@@ -91,15 +91,17 @@ window.App = {
 
   sendCoin: function() {
     var self = this;
-
+    console.log(self);
     var amount = parseInt(document.getElementById("amount").value);
-    var receiver = document.getElementById("receiver").value;
-
+    var receiver = new Array(2);
+    receiver[0] = document.getElementById("receiver1").value;
+    receiver[1] = document.getElementById("receiver2").value;
     this.setStatus("Initiating transaction... (please wait)");
-
+    console.log(receiver);
     var meta;
     MetaCoin.deployed().then(function(instance) {
       meta = instance;
+
       return meta.sendCoin(receiver, amount, {from: account});
     }).then(function() {
       self.setStatus("Transaction complete!");
