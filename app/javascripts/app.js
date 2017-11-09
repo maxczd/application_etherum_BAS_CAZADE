@@ -92,10 +92,13 @@ window.App = {
   sendCoin: function() {
     var self = this;
     console.log(self);
-    var amount = parseInt(document.getElementById("amount").value);
+    //var amount = parseInt(document.getElementById("amount").value);
+    var amount = 10;
     var receiver = new Array(2);
-    receiver[0] = document.getElementById("receiver1").value;
-    receiver[1] = document.getElementById("receiver2").value;
+    /*receiver[0] = document.getElementById("receiver1").value;
+    receiver[1] = document.getElementById("receiver2").value;*/
+    receiver[0] = accounts[1];
+    receiver[1] = accounts[2];
     this.setStatus("Initiating transaction... (please wait)");
     console.log(receiver);
     var meta;
