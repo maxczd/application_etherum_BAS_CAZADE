@@ -93,12 +93,16 @@ window.App = {
     var self = this;
     console.log(self);
     //var amount = parseInt(document.getElementById("amount").value);
+
+    var nombre_artiste = 4;
+
     var amount = 10;
-    var receiver = new Array(2);
+    var receiver = new Array(nombre_artiste);
     /*receiver[0] = document.getElementById("receiver1").value;
     receiver[1] = document.getElementById("receiver2").value;*/
-    receiver[0] = accounts[1];
-    receiver[1] = accounts[2];
+    for(var i=0;i<nombre_artiste;i++){
+        receiver[i] = accounts[i+1];
+      }
     this.setStatus("Initiating transaction... (please wait)");
     console.log(receiver);
     var meta;
