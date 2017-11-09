@@ -94,7 +94,7 @@ window.App = {
     console.log(self);
     //var amount = parseInt(document.getElementById("amount").value);
 
-    var nombre_artiste = 4;
+    var nombre_artiste = 3;
 
     var amount = 10;
     var receiver = new Array(nombre_artiste);
