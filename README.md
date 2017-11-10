@@ -46,8 +46,14 @@ Le fonctionnement du contrat est relativement simple. L'objectif est donc d'effe
 
 ## Web
 
-  * Javascript
-  Le fichier Javascript permet de faire le lien entre l'application et le smart contrat. Nous sommes partis d'un fichier javascript permettant d'effectuer une transaction simple entre deux adresses que nous avons modifié afin de faire fonctionner notre smart contrat. Ce fichier Javascript permet aussi de faire le lien avec le fichier JSON qui sert de base de données à l'application. On retrouve les fonctions implémentées dans le smart contrat dans ce fichier Javascript. La principale concerne l'envoi d'éther en donc la transaction en elle-même. Cette fonction permet de lier l'oeuvre sur laquelle l'utilisateur a cliqué afin de lui faire correspondre le bon prix ainsi que le bon nombre de contributeur, ce qui permet ensuite d'effectuer la transaction correctment.
+  * Javascript <br>
+  Le fichier Javascript permet de faire le lien entre l'application et le smart contrat. Nous sommes partis d'un fichier javascript permettant d'effectuer une transaction simple entre deux adresses que nous avons modifié afin de faire fonctionner notre smart contrat. Ce fichier Javascript permet aussi de faire le lien avec le fichier JSON qui sert de base de données à l'application. On retrouve les fonctions implémentées dans le smart contrat dans ce fichier Javascript. La principale concerne l'envoi d'éther et donc la transaction en elle-même. Cette fonction permet de lier l'oeuvre sur laquelle l'utilisateur a cliqué afin de lui faire correspondre le bon prix ainsi que le bon nombre de contributeurs, ce qui permet ensuite d'effectuer la transaction correctement.
+  
+  * JSON <br>
+  Le fichier JSON sert de base de données à l'application. Toutes les oeuvres y sont enregistrées avec leurs différentes caractéristiques : id, nom, date de sortie, prix, nombre de contributeurs. Le fichiers JavaScript va chercher les informations de chaque oeuvre nécessaires à leur affichage ainsi qu'aux transactions qui les concernent. 
+  
+  * HTML <br>
+  Le fichier HTML permet d'afficher l'ensemble des données de l'application. La plupart d'entre elles sont dynamiques et proviennent du fichier JSON. 
 
 ## Limitation et prochaines étapes
 
