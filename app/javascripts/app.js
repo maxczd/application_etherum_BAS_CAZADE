@@ -110,39 +110,47 @@ window.App = {
 
     //accès json et comparer valeurs
      
-      var amount = 10;
-     
+      
+     var amount=0;
 
-    var nombre_artiste = 2;
+    var nombre_artiste = 0;
 
+    var result = {amount: amount, nombre_artiste: nombre_artiste};
     
-    var receiver = new Array(nombre_artiste);
-    /*receiver[0] = document.getElementById("receiver1").value;
-    receiver[1] = document.getElementById("receiver2").value;*/
-    for(var i=0;i<nombre_artiste;i++){
-        receiver[i] = accounts[i+1];
-      }
     this.setStatus("Initiating transaction... (please wait)");
-    console.log(receiver);
+    //console.log(receiver);
     var meta;
     MetaCoin.deployed().then(function(instance) {
       console.log(instance);
       meta = instance;
 
-     /* $.getJSON('app/music.json', function(data) {
+      $.getJSON('app/music.json', function(data) {
         var musicTemplate = $('#musicTemplate');
 
         for (var i = 0; i < data.length; i ++) {
           if(button_class == parseInt(i))
           {
             amount = data[i].etherum;
+            nombre_artiste = data[i].contributors;
             console.log("prix=" +amount);
-          }
-        }
-        return amount;      
-      });
-      alert(amount);*/  
-        return meta.sendCoin(receiver, amount, {from: account});
+            console.log("contrib=" +nombre_artiste);
+          }          
+        } 
+        var result = {amount: amount, nombre_artiste: nombre_artiste};
+        //alert (JSON.stringify(result.amount),2,2);
+        return result;             
+     });
+     
+      setTimeout(function () { 
+        alert(nombre_artiste);
+         var receiver = new Array(nombre_artiste);
+  
+    for(var i=0;i<nombre_artiste;i++){
+        receiver[i] = accounts[i+1];
+      }
+         meta.sendCoin(receiver, amount, {from: account});
+         window.location.reload();
+        }, 3000);
       }).then(function() {
         self.setStatus("Transaction complete!");
         self.refreshBalance();
@@ -150,7 +158,8 @@ window.App = {
         console.log(e);
         self.setStatus("Error sending coin; see log.");
       });
-   // });
+
+    //});
   }
 };
 
@@ -167,4 +176,5 @@ window.addEventListener('load', function() {
   }
 
   App.start();
+
 });

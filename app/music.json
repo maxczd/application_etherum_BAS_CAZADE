@@ -6,7 +6,7 @@
     "title": "Alone",
     "date": "Sorti le 16-06-2017",
     "contributors": 2,
-    "etherum": 10
+    "etherum": 2
   },
   {
     "id": 1,
@@ -14,8 +14,8 @@
     "artist": "par Kartell",
     "title": "5 A.M.",
     "date": "Sorti le 04-11-2017",
-    "contributors": 2,
-    "etherum": 20
+    "contributors": 4,
+    "etherum": 3
   },
   {
     "id": 2,
@@ -24,7 +24,7 @@
     "title": "Myrage",
     "date": "Sorti le 16-06-2017",
     "contributors": 2,
-    "etherum": 20
+    "etherum": 6
   },
   {
     "id": 3,
@@ -33,7 +33,7 @@
     "title": "Romance - EP",
     "date": "Sorti le 24-02-2014",
     "contributors": 2,
-    "etherum": 20
+    "etherum": 5
   },
   {
     "id": 4,
@@ -42,7 +42,7 @@
     "title": "French Kiwi Juice",
     "date": "Sorti le 03-03-2017",
     "contributors": 2,
-    "etherum": 20
+    "etherum": 4
   },
   {
     "id": 5,
@@ -51,7 +51,7 @@
     "title": "Tadow",
     "date": "Sorti le 06-10-2017",
     "contributors": 2,
-    "etherum": 20
+    "etherum": 2
   },
   {
     "id": 6,
@@ -60,7 +60,7 @@
     "title": "Marks",
     "date": "Sorti le 02-12-2016",
     "contributors": 2,
-    "etherum": 20
+    "etherum": 3
   },
   {
     "id": 7,
@@ -69,6 +69,6 @@
     "title": "Almost Original",
     "date": "Sorti le 26-12-2016",
     "contributors": 2,
-    "etherum": 20
+    "etherum": 6
   }
 ]
