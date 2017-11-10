@@ -71,6 +71,8 @@ window.App = {
 
   setStatus: function(message) {
     var status = document.getElementById("status");
+    var test = $('#test1');
+    test.find('.test').addClass('alert alert-info');
     status.innerHTML = message;
   },
 
@@ -152,7 +154,7 @@ window.App = {
            window.location.reload(); // on recharge la page afin d'actualiser le nombre d'éther de l'utilisateur
           }, 3000);
         }).then(function() {
-          self.setStatus("Transaction complete!");
+          self.setStatus("Transaction complete!")
           self.refreshBalance();
         }).catch(function(e) {
           console.log(e);
