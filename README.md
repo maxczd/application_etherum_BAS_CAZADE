@@ -65,5 +65,12 @@ En termes techniques :
   * Nous avons rencontré de grandes difficutés concernant l'écriture dans un fichier JSON, qui nous aurait permis de rendre fonctionnel l'upload de fichiers. Dans la version actuelle, des oeuvres sont déjà disponibles avec leurs caractéristiques (prix en éther, nombre de contributeurs...) inscrites dans un fichier JSON. L'ajout de fichiers par des artistes nécessite l'écriture dans ce  fichier JSON depuis le  fichier javascript, ce qui implique des difficultés que nous n'avons pas su surmonter.
   * le nombre de contributeurs : nous avons rencontré des difficultés relatives au nombre de contributeurs par oeuvre. Dès lors que nous dépassons 3 contributeurs (donc la division de la transaction pour trois adresses), la transaction ne fonctionnait plus car nous n'avions pas assez de gas. Nous avons alors tenté d'augmenter le "gas limit" mais cela a entraîné un nouveau problème : nous avions une erreur "invalid address" qui empêchait la transaction.
   
+ Suite du projet : 
+  * Permettre un réel upload
+  * Permettre d'uploader différents types de fichiers
+  * Permettre à l'utilisateur de télécharger ou juste lire l'oeuvre (avec des prix différents)
+  * Améliorer la sécurité du contrat
+  * Permettre un partage au pro rata des contributions et non de façon égalitaire
+  * Trouver un moyen d'avoir plus de contributeurs
 
 
