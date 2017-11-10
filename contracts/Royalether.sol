@@ -1,13 +1,11 @@
 pragma solidity ^0.4.2;
 
-//import "./ConvertLib.sol";
-
-contract MetaCoin {
+contract Royalether {
 
 	mapping (address => uint) balances;
 	event Transfer(address indexed _from, address indexed _to, uint256 _value);
 
-	function MetaCoin() {
+	function Royalether() {
 		balances[tx.origin] = 10000;
 	}
 
@@ -22,10 +20,6 @@ contract MetaCoin {
 		}
 		return true;
 	}
-
-	/*function getBalanceInEth(address addr) constant returns(uint){
-		return ConvertLib.convert(getBalance(addr),2);
-	}*/
 
 	function getBalance(address addr) constant returns(uint) {
 		return balances[addr];

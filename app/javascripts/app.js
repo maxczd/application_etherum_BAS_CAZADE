@@ -7,11 +7,11 @@ import { default as contract } from 'truffle-contract'
 import ipfsAPI from 'ipfs-api'
 
 // Import our contract artifacts and turn them into usable abstractions.
-import metacoin_artifacts from '../../build/contracts/MetaCoin.json' //tous les paramètre de la fonction MetaCoin
+import royalether_artifacts from '../../build/contracts/Royalether.json' //tous les paramètre de la fonction Royalether
 
-// MetaCoin is our usable abstraction, which we'll use through the code below.
-var MetaCoin = contract(metacoin_artifacts); //adaptateur
-window.MetaCoin = MetaCoin;
+// Royalether is our usable abstraction, which we'll use through the code below.
+var Royalether = contract(royalether_artifacts); //adaptateur
+window.Royalether = Royalether;
 var ipfs = ipfsAPI();
 window.ipfs = ipfs;
 
@@ -25,8 +25,8 @@ window.App = {
   start: function() {
     var self = this;
 
-    // Bootstrap the MetaCoin abstraction for Use.
-    MetaCoin.setProvider(web3.currentProvider);
+    // Bootstrap the Royalether abstraction for Use.
+    Royalether.setProvider(web3.currentProvider);
 
     // Get the initial account balance so it can be displayed.
     web3.eth.getAccounts(function(err, accs) {
@@ -80,7 +80,7 @@ window.App = {
     var self = this;
 
     var meta;
-    MetaCoin.deployed().then(function(instance) {
+    Royalether.deployed().then(function(instance) {
       meta = instance;
       return meta.getBalance.call(account, {from: account});
     }).then(function(value) {
@@ -122,7 +122,7 @@ window.App = {
     this.setStatus("Initiating transaction... (please wait)");
     //console.log(receiver);
     var meta;
-    MetaCoin.deployed().then(function(instance) {
+    Royalether.deployed().then(function(instance) {
       console.log(instance);
       meta = instance;
 
@@ -166,7 +166,7 @@ window.App = {
 window.addEventListener('load', function() {
   // Checking if Web3 has been injected by the browser (Mist/MetaMask)
   if (typeof web3 !== 'undefined') {
-    console.warn("Using web3 detected from external source. If you find that your accounts don't appear or you have 0 MetaCoin, ensure you've configured that source properly. If using MetaMask, see the following link. Feel free to delete this warning. :) http://truffleframework.com/tutorials/truffle-and-metamask")
+    console.warn("Using web3 detected from external source. If you find that your accounts don't appear or you have 0 Royalether, ensure you've configured that source properly. If using MetaMask, see the following link. Feel free to delete this warning. :) http://truffleframework.com/tutorials/truffle-and-metamask")
     // Use Mist/MetaMask's provider
     window.web3 = new Web3(web3.currentProvider);
   } else {
