@@ -89,12 +89,20 @@ window.App = {
     });
   },
 
+  upload: function() {
+    var amount = parseInt(document.getElementById("price").value);
+    var nombre_artiste = parseInt(document.getElementById("contributors").value);
+
+    console.log(amount);
+    console.log(nombre_artiste);
+  },
+
   sendCoin: function() {
     var self = this;
     console.log(self);
-    //var amount = parseInt(document.getElementById("amount").value);
+    
 
-    var nombre_artiste = 3;
+    var nombre_artiste = 2;
 
     var amount = 10;
     var receiver = new Array(nombre_artiste);

@@ -109,7 +109,7 @@
       </div>
     </div>
 
-    <!-- Modal -->
+     <!-- Modal -->
     <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div class="modal-dialog" role="document">
         <div class="modal-content">
@@ -120,41 +120,18 @@
             </button>
           </div>
           <div class="modal-body">
-            <form>
-              <div class="input-group">
-               <span class="input-group-addon"><i class="fa fa-list-ol"></i></span>
-                <select class="form-control" id="sel1">
-                  <option>1</option>
-                  <option>2</option>
-                  <option>3</option>
-                  <option>4</option>
-                </select>
-              </div><br/><br/>
-              <div class="input-group">
-                <span class="input-group-addon"><i class="fa fa-address-card-o"></i></span>
-                <input type="text" class="form-control" name="address" placeholder="Address">
-              </div><br/><br/>
-              <div class="input-group">
-                <span class="input-group-addon"><i class="fa fa-percent"></i></span>
-                <input type="number" class="form-control" name="percentage" placeholder="Percentage">
-              </div><br/><br/>
-              <div class="form-group">
-                <div class="input-group">
-                  <span class="input-group-addon"><i class="fa fa-bullseye"></i></span>
-                  <select placeholder="Number of collaborators"  class="form-control" id="sel1">
-                    <option>Music</option>
-                    <option>Videos</option>
-                    <option>Pictures</option>
-                    <option>Documents</option>
-                    <option>Others</option>
-                  </select>
-                </div>
-              </div>
-            </form>
+            <div class="input-group">
+              <span class="input-group-addon"><i class="fa fa-users"></i></span>
+              <input type="text" class="form-control" id="contributors" placeholder="Number of contributors"/>
+            </div><br/><br/>
+            <div class="input-group">
+              <span class="input-group-addon"><i class="fa fa-btc"></i></span>
+              <input type="text" class="form-control" id="price" placeholder="Price (eth)"></input>
+            </div><br/><br/>
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-            <button type="button" class="btn btn-primary"><i class="fa fa-plus"></i> Upload</button>
+            <button type="button" class="btn btn-primary" data-dismiss="modal" onclick="App.upload()"><i class="fa fa-plus"></i> Upload</button>
           </div>
         </div>
       </div>
@@ -166,9 +143,5 @@
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 
-    <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="js/web3.min.js"></script>
-    <script src="js/truffle-contract.js"></script>
-    <script src="js/app.js"></script>
   </body>
 </html>
