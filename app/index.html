@@ -16,7 +16,7 @@
   <body>
     <header>
 			<div class="row">
-				<div class="logo-search col-xs-12 col-sm-12 col-md-4 col-lg-4">
+				<div class="logo-search col-xs-12 col-sm-12 col-md-6 col-lg-6">
 					<img src="https://github.com/maxczd/application_etherum_BAS_CAZADE/blob/master/app/images/logo.png?raw=true"/>
 				</div>
         <div class="d-none d-md-block col-md-6 col-lg-6 position-element-search">
@@ -29,23 +29,18 @@
               </span>
           </div>
         </div>
-				<div class="d-none d-md-block col-md-2 col-lg-2 position-element-icon">
-          <span class="float-right fa fa-sign-out fa-2x" style="color:#0089f5"></span>
-				</div>
 			</div>
 		</header>
     <div class="container-fluid">
       <div class="row">
         <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3 margin-nav">
           <div class="row" style="margin-top:20px;margin-bottom:20px;">
-            <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 vertical-align">
-              <img class="float-right img-rounded img-center" style="width: 30px;" src="https://github.com/maxczd/application_etherum_BAS_CAZADE/blob/master/app/images/eric.png?raw=true">
+
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 vertical-align">
+              <p id='address_user' style="font-size: 8px"></p>
             </div>
-            <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 vertical-align">
-              <p>Eric Prydz</p>
-            </div>
-            <div class="d-none d-md-block col-md-3 col-lg-3 vertical-align">
-              <a href="#"><i class="fa fa-cog fa-2x"></i></a>
+            <div class="col-md-12 col-lg-12 vertical-align">
+              <h3>You have <span class="black"><span id="balance"></span> META</span></h3>
             </div>
           </div>
           <p>
@@ -64,17 +59,13 @@
           <h2>Discover Music</h2>
           <hr>
           <div id="musicRow" class="row">
-            <h3>You have <span class="black"><span id="balance"></span> META</span></h3>
-            <br>
-            <h1>Send MetaCoin</h1>
-            <!--<br><label for="amount">Amount:</label><input type="text" id="amount" placeholder="e.g., 95"></input>
-            <br><label for="receiver">To Address:</label><input type="text" id="receiver1" placeholder="e.g., 0x93e66d9baea28c17d9fc393b53e3fbdd76899dae"></input>
-          </label><input type="text" id="receiver2" placeholder="e.g., 0x93e66d9baea28c17d9fc393b53e3fbdd76899dae"></input>-->
-            <br><br><button id="send" onclick="App.sendCoin()">Send MetaCoin</button>
-            <br><br>
-            <span id="status"></span>
-            <br>
-            <span class="hint"><strong>Hint:</strong> open the browser developer console to view any errors and warnings.</span>
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+              <br><br><button id="send" onclick="App.sendCoin()">Send MetaCoin</button>
+              <br><br>
+              <span id="status"></span>
+              <br>
+              <span class="hint"><strong>Hint:</strong> open the browser developer console to view any errors and warnings.</span>
+            </div>
           </div>
         </div>
       </div>

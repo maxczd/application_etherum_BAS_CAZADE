@@ -64,6 +64,27 @@ window.App = {
       accounts = accs;
       account = accounts[0];
 
+      var address_user = document.getElementById("address_user");
+      address_user.innerHTML = account.valueOf();
+
+
+      $.getJSON('app/music.json', function(data) {
+        var musicRow = $('#musicRow');
+        var musicTemplate = $('#musicTemplate');
+
+        for (var i = 0; i < data.length; i ++) {
+          musicTemplate.find('img').attr('src', data[i].picture);
+          musicTemplate.find('.music-title').text(data[i].title);
+          musicTemplate.find('.music-artist').text(data[i].artist);
+          musicTemplate.find('.music-date').text(data[i].date);
+          musicTemplate.find('.music-download').text(data[i].dowlnoad);
+          musicTemplate.find('.music-etherum').text(data[i].etherum);
+          musicTemplate.find('.btn-adopt').attr('data-id', data[i].id);
+
+          musicRow.append(musicTemplate.html());
+        }
+      });
+
       self.refreshBalance();
     });
   },
@@ -95,12 +116,14 @@ window.App = {
 
     console.log(amount);
     console.log(nombre_artiste);
+
+
   },
 
   sendCoin: function() {
     var self = this;
     console.log(self);
-    
+
 
     var nombre_artiste = 2;
 
