@@ -5,8 +5,8 @@
     "artist": "par Megan",
     "title": "Alone",
     "date": "Sorti le 16-06-2017",
-    "download": 10,
-    "etherum": 20
+    "contributors": 2,
+    "etherum": 10
   },
   {
     "id": 1,
@@ -14,7 +14,7 @@
     "artist": "par Kartell",
     "title": "5 A.M.",
     "date": "Sorti le 04-11-2017",
-    "download": 10,
+    "contributors": 2,
     "etherum": 20
   },
   {
@@ -23,7 +23,7 @@
     "artist": "par Else",
     "title": "Myrage",
     "date": "Sorti le 16-06-2017",
-    "download": 10,
+    "contributors": 2,
     "etherum": 20
   },
   {
@@ -32,7 +32,7 @@
     "artist": "par Darius",
     "title": "Romance - EP",
     "date": "Sorti le 24-02-2014",
-    "download": 10,
+    "contributors": 2,
     "etherum": 20
   },
   {
@@ -41,7 +41,7 @@
     "artist": "par FKJ",
     "title": "French Kiwi Juice",
     "date": "Sorti le 03-03-2017",
-    "download": 10,
+    "contributors": 2,
     "etherum": 20
   },
   {
@@ -50,7 +50,7 @@
     "artist": "par Masego & FKJ",
     "title": "Tadow",
     "date": "Sorti le 06-10-2017",
-    "download": 10,
+    "contributors": 2,
     "etherum": 20
   },
   {
@@ -59,7 +59,7 @@
     "artist": "par Beauvois",
     "title": "Marks",
     "date": "Sorti le 02-12-2016",
-    "download": 10,
+    "contributors": 2,
     "etherum": 20
   },
   {
@@ -68,7 +68,7 @@
     "artist": "par Andre & Karud",
     "title": "Almost Original",
     "date": "Sorti le 26-12-2016",
-    "download": 10,
+    "contributors": 2,
     "etherum": 20
   }
 ]

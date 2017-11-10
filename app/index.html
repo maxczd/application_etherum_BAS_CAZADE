@@ -60,7 +60,7 @@
           <hr>
           <div id="musicRow" class="row">
             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-              <br><br><button id="send" onclick="App.sendCoin()">Send MetaCoin</button>
+              <!--<br><br><button id="send" onclick="App.sendCoin()">Send MetaCoin</button>-->
               <br><br>
               <span id="status"></span>
               <br>
@@ -90,11 +90,11 @@
                 <span class="music-artist">par Megan</span><br/>
               </div>
               <div class="col-sm-2 col-md-2 col-lg-2">
-                <span class="float-right" class="music-etherum">50.2eth</span><br/>
+                <span class="float-right" class="music-etherum">10</span><br/>
               </div>
             </div>
             <span class="music-date">07/21/2017</span><br/><br/>
-            <button class="btn btn-download btn-adopt" type="button" data-id="0"><i class="fa fa-download" style="color:#0089f5"></i> Download</button><br/><br/>
+            <button class="btn btn-download btn-adopt" type="button" id="btn-id" data-id="0" onclick="App.sendCoin(this)"><i class="fa fa-download" style="color:#0089f5"></i> Download</button><br/><br/>
           </div>
         </div>
       </div>

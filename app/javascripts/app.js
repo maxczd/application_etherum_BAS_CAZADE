@@ -22,27 +22,6 @@ var accounts;
 var account;
 
 window.App = {
-  init: function() {
-      // Load music.
-      $.getJSON('../music.json', function(data) {
-        var musicRow = $('#musicRow');
-        var musicTemplate = $('#musicTemplate');
-
-        for (i = 0; i < data.length; i ++) {
-          musicTemplate.find('img').attr('src', data[i].picture);
-          musicTemplate.find('.music-title').text(data[i].title);
-          musicTemplate.find('.music-artist').text(data[i].artist);
-          musicTemplate.find('.music-date').text(data[i].date);
-          musicTemplate.find('.music-download').text(data[i].dowlnoad);
-          musicTemplate.find('.music-etherum').text(data[i].etherum);
-          musicTemplate.find('.btn-adopt').attr('data-id', data[i].id);
-
-          musicRow.append(musicTemplate.html());
-        }
-      });
-
-      return App.initWeb3();
-    },
   start: function() {
     var self = this;
 
@@ -73,13 +52,14 @@ window.App = {
         var musicTemplate = $('#musicTemplate');
 
         for (var i = 0; i < data.length; i ++) {
+          var clas = i.toString(); 
           musicTemplate.find('img').attr('src', data[i].picture);
           musicTemplate.find('.music-title').text(data[i].title);
           musicTemplate.find('.music-artist').text(data[i].artist);
           musicTemplate.find('.music-date').text(data[i].date);
           musicTemplate.find('.music-download').text(data[i].dowlnoad);
           musicTemplate.find('.music-etherum').text(data[i].etherum);
-          musicTemplate.find('.btn-adopt').attr('data-id', data[i].id);
+          musicTemplate.find('.btn-adopt').attr('data-id', data[i].id).removeClass().addClass('btn btn-download btn-adopt').addClass(clas);
 
           musicRow.append(musicTemplate.html());
         }
@@ -120,14 +100,22 @@ window.App = {
 
   },
 
-  sendCoin: function() {
+  sendCoin: function(e) {
     var self = this;
     console.log(self);
 
+    var button_all_class = e.getAttribute('class');
+    var button_class = button_all_class.substr(27);
+    console.log(button_class);
+
+    //accès json et comparer valeurs
+     
+      var amount = 10;
+     
 
     var nombre_artiste = 2;
 
-    var amount = 10;
+    
     var receiver = new Array(nombre_artiste);
     /*receiver[0] = document.getElementById("receiver1").value;
     receiver[1] = document.getElementById("receiver2").value;*/
@@ -138,16 +126,31 @@ window.App = {
     console.log(receiver);
     var meta;
     MetaCoin.deployed().then(function(instance) {
+      console.log(instance);
       meta = instance;
 
-      return meta.sendCoin(receiver, amount, {from: account});
-    }).then(function() {
-      self.setStatus("Transaction complete!");
-      self.refreshBalance();
-    }).catch(function(e) {
-      console.log(e);
-      self.setStatus("Error sending coin; see log.");
-    });
+     /* $.getJSON('app/music.json', function(data) {
+        var musicTemplate = $('#musicTemplate');
+
+        for (var i = 0; i < data.length; i ++) {
+          if(button_class == parseInt(i))
+          {
+            amount = data[i].etherum;
+            console.log("prix=" +amount);
+          }
+        }
+        return amount;      
+      });
+      alert(amount);*/  
+        return meta.sendCoin(receiver, amount, {from: account});
+      }).then(function() {
+        self.setStatus("Transaction complete!");
+        self.refreshBalance();
+      }).catch(function(e) {
+        console.log(e);
+        self.setStatus("Error sending coin; see log.");
+      });
+   // });
   }
 };
 
