@@ -54,14 +54,12 @@ window.App = {
         var musicTemplate = $('#musicTemplate');
 
         for (var i = 0; i < data.length; i ++) {
-          var clas = i.toString(); 
+          var clas = i.toString();
           musicTemplate.find('img').attr('src', data[i].picture);
-          musicTemplate.find('.music-title').text(data[i].title);
-          musicTemplate.find('.music-artist').text(data[i].artist);
+          musicTemplate.find('.music-title').text(data[i].title + ' - ' + data[i].etherum + ' eth');
+          musicTemplate.find('.music-artist').text(data[i].artist + ' - ' + data[i].contributors + ' contributors');
           musicTemplate.find('.music-date').text(data[i].date);
-          musicTemplate.find('.music-download').text(data[i].dowlnoad);
-          musicTemplate.find('.music-etherum').text(data[i].etherum);
-          musicTemplate.find('.btn-adopt').attr('data-id', data[i].id).removeClass().addClass('btn btn-download btn-adopt').addClass(clas); //modification des classes de chaque bouton "download" afin de les identifier les uns par rapport aux autres lors du clique 
+          musicTemplate.find('.btn-adopt').attr('data-id', data[i].id).removeClass().addClass('btn btn-download btn-adopt').addClass(clas); //modification des classes de chaque bouton "download" afin de les identifier les uns par rapport aux autres lors du clique
 
           musicRow.append(musicTemplate.html());
         }
@@ -103,7 +101,7 @@ window.App = {
 
   },
 
-  /// Fonction permettant l'envoi d'Ether aux artistes concernés /// 
+  /// Fonction permettant l'envoi d'Ether aux artistes concernés ///
 
   sendCoin: function(e) {
     var self = this;
@@ -113,12 +111,12 @@ window.App = {
     var button_class = button_all_class.substr(27); // on isole la dernière classe qui correspond à l'id de l'oeuvre dans le JSON
     console.log(button_class);
 
-     
-    /// Déclaration des variables nécessaires à la transaction /// 
+
+    /// Déclaration des variables nécessaires à la transaction ///
     var amount=0;
     var nombre_artiste = 0;
     var result = {amount: amount, nombre_artiste: nombre_artiste};
-    
+
     this.setStatus("Initiating transaction... (please wait)");
     //console.log(receiver);
     var meta;
@@ -138,15 +136,15 @@ window.App = {
             nombre_artiste = data[i].contributors; // on affecte le nombre de contributeurs au nombre de bénéficiaires de la transaction
             console.log("prix=" +amount);
             console.log("contrib=" +nombre_artiste);
-          }          
-        } 
+          }
+        }
         var result = {amount: amount, nombre_artiste: nombre_artiste}; // on regroupe les deux variables
         return result; // on retourne les deux variables
      });
-     
+
       setTimeout(function () {  //on met un délai à cause du caractère asynchrone du "$.getJSON"
       var receiver = new Array(nombre_artiste);
-  
+
       for(var i=0;i<nombre_artiste;i++){ // on parcourt l'ensemble des comptes de testRPC
           receiver[i] = accounts[i+1]; // on sélectionne le bon nombres de bénéficiaires en leur attribuant leur addresse publique
         }
