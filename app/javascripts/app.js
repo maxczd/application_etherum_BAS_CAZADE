@@ -47,6 +47,8 @@ window.App = {
       address_user.innerHTML = account.valueOf();
 
 
+    /// Récupération des informations sur les oeuvres afin de les afficher ///
+
       $.getJSON('app/music.json', function(data) {
         var musicRow = $('#musicRow');
         var musicTemplate = $('#musicTemplate');
@@ -59,7 +61,7 @@ window.App = {
           musicTemplate.find('.music-date').text(data[i].date);
           musicTemplate.find('.music-download').text(data[i].dowlnoad);
           musicTemplate.find('.music-etherum').text(data[i].etherum);
-          musicTemplate.find('.btn-adopt').attr('data-id', data[i].id).removeClass().addClass('btn btn-download btn-adopt').addClass(clas);
+          musicTemplate.find('.btn-adopt').attr('data-id', data[i].id).removeClass().addClass('btn btn-download btn-adopt').addClass(clas); //modification des classes de chaque bouton "download" afin de les identifier les uns par rapport aux autres lors du clique 
 
           musicRow.append(musicTemplate.html());
         }
@@ -90,31 +92,31 @@ window.App = {
     });
   },
 
+  /// Fonction permettant l'ajout d'une oeuvre ///
+
   upload: function() {
-    var amount = parseInt(document.getElementById("price").value);
-    var nombre_artiste = parseInt(document.getElementById("contributors").value);
+    var amount = parseInt(document.getElementById("price").value);  // On récupère le prix de l'oeuvre fixé par l'artiste
+    var nombre_artiste = parseInt(document.getElementById("contributors").value); // on récupère le nombre  de contributeurs à l'oeuvre qui recevront alors des éther à chaque download
 
     console.log(amount);
     console.log(nombre_artiste);
 
-
   },
+
+  /// Fonction permettant l'envoi d'Ether aux artistes concernés /// 
 
   sendCoin: function(e) {
     var self = this;
     console.log(self);
 
-    var button_all_class = e.getAttribute('class');
-    var button_class = button_all_class.substr(27);
+    var button_all_class = e.getAttribute('class'); // on récupère les classes du bouton "download" cliqué
+    var button_class = button_all_class.substr(27); // on isole la dernière classe qui correspond à l'id de l'oeuvre dans le JSON
     console.log(button_class);
 
-    //accès json et comparer valeurs
      
-      
-     var amount=0;
-
+    /// Déclaration des variables nécessaires à la transaction /// 
+    var amount=0;
     var nombre_artiste = 0;
-
     var result = {amount: amount, nombre_artiste: nombre_artiste};
     
     this.setStatus("Initiating transaction... (please wait)");
@@ -124,42 +126,40 @@ window.App = {
       console.log(instance);
       meta = instance;
 
+      /// Accès au JSON pour identifier l'oeuvre impliquée dans la transaction ///
+
       $.getJSON('app/music.json', function(data) {
         var musicTemplate = $('#musicTemplate');
 
-        for (var i = 0; i < data.length; i ++) {
-          if(button_class == parseInt(i))
+        for (var i = 0; i < data.length; i ++) { // on parcourt l'ensemble des oeuvres
+          if(button_class == parseInt(i)) // on identifie l'oeuvre correspondant au bouton cliqué
           {
-            amount = data[i].etherum;
-            nombre_artiste = data[i].contributors;
+            amount = data[i].etherum; // on affecte la valeur du montant de l'oeuvre au prix de la transaction
+            nombre_artiste = data[i].contributors; // on affecte le nombre de contributeurs au nombre de bénéficiaires de la transaction
             console.log("prix=" +amount);
             console.log("contrib=" +nombre_artiste);
           }          
         } 
-        var result = {amount: amount, nombre_artiste: nombre_artiste};
-        //alert (JSON.stringify(result.amount),2,2);
-        return result;             
+        var result = {amount: amount, nombre_artiste: nombre_artiste}; // on regroupe les deux variables
+        return result; // on retourne les deux variables
      });
      
-      setTimeout(function () { 
-        alert(nombre_artiste);
-         var receiver = new Array(nombre_artiste);
+      setTimeout(function () {  //on met un délai à cause du caractère asynchrone du "$.getJSON"
+      var receiver = new Array(nombre_artiste);
   
-    for(var i=0;i<nombre_artiste;i++){
-        receiver[i] = accounts[i+1];
-      }
-         meta.sendCoin(receiver, amount, {from: account});
-         window.location.reload();
-        }, 3000);
-      }).then(function() {
-        self.setStatus("Transaction complete!");
-        self.refreshBalance();
-      }).catch(function(e) {
-        console.log(e);
-        self.setStatus("Error sending coin; see log.");
-      });
-
-    //});
+      for(var i=0;i<nombre_artiste;i++){ // on parcourt l'ensemble des comptes de testRPC
+          receiver[i] = accounts[i+1]; // on sélectionne le bon nombres de bénéficiaires en leur attribuant leur addresse publique
+        }
+           meta.sendCoin(receiver, amount, {from: account}); // on effectue la transaction avec le bon montant
+           window.location.reload(); // on recharge la page afin d'actualiser le nombre d'éther de l'utilisateur
+          }, 3000);
+        }).then(function() {
+          self.setStatus("Transaction complete!");
+          self.refreshBalance();
+        }).catch(function(e) {
+          console.log(e);
+          self.setStatus("Error sending coin; see log.");
+        });
   }
 };
 
